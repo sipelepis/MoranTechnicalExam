@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "1068940126771",
+    "firebase_url": "https://technical-exam-moran-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "technical-exam-moran",
+    "storage_bucket": "technical-exam-moran.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068940126771:android:372b9117715ef274c05146",
+        "android_client_info": {
+          "package_name": "com.example.morantechnicalexam"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyZdzVNtPjiGuavVwYg-tt8ymJMYHHe-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068940126771:android:27a7c8096291538bc05146",
+        "android_client_info": {
+          "package_name": "com.example.solaire_technical_exam_moran"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyZdzVNtPjiGuavVwYg-tt8ymJMYHHe-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1068940126771:android:cd51e292384ee06ec05146",
+        "android_client_info": {
+          "package_name": "com.example.technical_exam_moran"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyZdzVNtPjiGuavVwYg-tt8ymJMYHHe-g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
