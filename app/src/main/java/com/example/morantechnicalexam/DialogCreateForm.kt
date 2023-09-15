@@ -61,11 +61,13 @@ fun FormDialog(
                     modifier = Modifier.padding(16.dp),
                 )
                 OutlinedTextField(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp),
                     value = itemName,
                     onValueChange = { itemName = it },
                     label = { Text("Item Name") }
                 )
                 OutlinedTextField(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp),
                     value = itemPrice,
                     onValueChange = { if (it.isDigitsOnly()) itemPrice = it},
                     label = { Text("Item Price") },
@@ -73,6 +75,7 @@ fun FormDialog(
                 )
 
                 OutlinedTextField(
+                    modifier = Modifier.padding(horizontal = 16.dp, vertical = 2.dp),
                     value = itemColor,
                     onValueChange = { itemColor = it },
                     label = { Text("Item Color") }

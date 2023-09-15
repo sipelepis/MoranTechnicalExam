@@ -24,10 +24,11 @@ import androidx.compose.ui.window.Dialog
 @Composable
 fun DialogPatchDelOpt(
     onDismissRequest: () -> Unit,
+    keyVal: String,
     itemName: String,
     price: String,
     color: String,
-    key: MutableList<Pair<String?, ItemModel>>,
+    key: Pair<String?, ItemModel>,
     function: () -> Unit
 ) {
     var dialogDelete by remember { mutableStateOf(false) }
@@ -60,7 +61,7 @@ fun DialogPatchDelOpt(
                         onClick = { onDismissRequest(); },
                         modifier = Modifier.padding(8.dp),
                     ) {
-                        Text("Dismiss")
+                        Text("CANCEL")
                     }
                     TextButton(
                         onClick = {
@@ -69,14 +70,16 @@ fun DialogPatchDelOpt(
                         },
                         modifier = Modifier.padding(8.dp),
                     ) {
-                        Text("Edit")
+                        Text("EDIT")
                     }
                     TextButton(
                         onClick = {
+                            deleteData(keyVal);
+                            onDismissRequest();
                         },
                         modifier = Modifier.padding(8.dp),
                     ) {
-                        Text("Delete")
+                        Text("DELETE")
                     }
                 }
             }

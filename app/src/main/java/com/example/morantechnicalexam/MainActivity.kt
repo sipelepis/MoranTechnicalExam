@@ -28,7 +28,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.pointerInput
-import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -36,6 +35,7 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.lazy.items
+import androidx.compose.ui.text.font.FontWeight
 
 class MainActivity : ComponentActivity() {
     private val viewModel: MainViewModel by viewModels()
@@ -113,16 +113,18 @@ fun ShowLazyList(items: MutableList<ItemModel>, key: MutableList<Pair<String?, I
 //
 //        }
 //    }
-
     LazyColumn {
-        items(items) { index ->
-            CardItem(index, key)
+        items(key) { index ->
+            CardItem(index)
         }
     }
 }
 
 @Composable
-fun CardItem(item: ItemModel, key: MutableList<Pair<String?, ItemModel>>){
+fun CardItem(
+//    item: ItemModel,
+    key: Pair<String?, ItemModel>
+){
     var showOptionDialog by remember { mutableStateOf(false) }
     val database = Firebase.database;
     ElevatedCard(
@@ -147,24 +149,15 @@ fun CardItem(item: ItemModel, key: MutableList<Pair<String?, ItemModel>>){
 //                    println("Confirmation registered") // Add logic here to handle confirmation.
 //                }
 //            )
-            DialogPatchDelOpt(onDismissRequest = { showOptionDialog = showOptionDialog.not(); },
-                itemName = item.itemName!!, price = item.price.toString(), color = item.color!!, key) {
+            DialogPatchDelOpt(
+                onDismissRequest = { showOptionDialog = showOptionDialog.not(); },
+                key.first.toString(), key.second.itemName!!, key.second.price.toString(), key.second.color!!, key) {
             }
         }
-        var showMenu by remember { mutableStateOf(false) }
-
-
         Column() {
-            val firstValues = key.map { it.first };
-            val firstValues1: List<String?> = key.map { it.second.itemName }
-//            for (value in firstValues) {
-//                var keyzz: String = null;
-//                keyzz =value.toString();
-//            }
+
             Text( //title
-//                text = firstValues.toString(),
-                text = firstValues1[0].toString(),
-//                text=item.itemName!!,
+                text = key.second.itemName!!,
                 modifier = Modifier
                     .padding(horizontal = 16.dp, vertical = 5.dp),
                 textAlign = TextAlign.Center,
@@ -173,14 +166,14 @@ fun CardItem(item: ItemModel, key: MutableList<Pair<String?, ItemModel>>){
                 fontWeight = FontWeight.Bold
             )
             Text( //price
-                text = item.price.toString(),
+                text = key.second.price.toString(),
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .padding(horizontal = 16.dp, vertical = 0.dp),
                 fontSize = 15.sp,
             )
             Text( //color
-                text = item.color!!,
+                text = key.second.color!!,
                 textAlign = TextAlign.Center,
                 modifier = Modifier
                     .padding(horizontal = 16.dp, vertical = 0.dp),

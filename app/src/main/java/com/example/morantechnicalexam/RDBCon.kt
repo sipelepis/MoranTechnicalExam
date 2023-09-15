@@ -17,7 +17,6 @@ class MainViewModel: ViewModel(){
     private fun FetchDataFromRDB(){
 
         val database = Firebase.database;
-        val keys = mutableListOf<String?>()
         val itemList = mutableListOf<ItemModel>()
         val itemListwithKey = mutableListOf<Pair<String?, ItemModel>>()
         database.getReference("items").addListenerForSingleValueEvent(object: ValueEventListener{
